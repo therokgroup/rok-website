@@ -3,22 +3,22 @@
   "hero_subtitle": "New builds, extensions and renovations across the South East — managed end-to-end.",
   "button_primary": "Request a Consultation",
   "button_secondary": "View Projects",
-  "hero_image": "/assets/images/circus-after-.jpeg",
+  "hero_image": "/assets/images/general/hero_house_clean.png",
   "services": [
     {
       "title": "New Builds",
       "description": "High-quality new homes built with precision and care.",
-      "image": "/assets/images/service1.jpg"
+      "image": "/assets/images/projects/project-1.jpg"
     },
     {
       "title": "Extensions",
       "description": "Expand your home with seamless modern extensions.",
-      "image": "/assets/images/service2.jpg"
+      "image": "/assets/images/projects/project-2.jpg"
     },
     {
       "title": "Renovations",
       "description": "Transform your property with full renovation services.",
-      "image": "/assets/images/service3.jpg"
+      "image": "/assets/images/projects/project-3.jpg"
     }
   ]
 }

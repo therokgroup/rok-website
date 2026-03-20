@@ -1,1 +1,1 @@
-ROK overhaul with example images throughout. Replace SVGs later with real images.
+Replace your GitHub repo root with these files. Numbers in header: 01323 409640 and 07383 402127. Email: info@therokgroup.co.uk.

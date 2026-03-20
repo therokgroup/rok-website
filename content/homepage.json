@@ -1,0 +1,43 @@
+{
+  "eyebrow": "Premium Residential Construction",
+  "headline": "Building with Precision. Designed for Longevity.",
+  "subheadline": "New builds, extensions and renovations across the South East \u2014 managed end-to-end.",
+  "heroImage": "https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1800&q=80",
+  "primaryButtonText": "Request a Consultation",
+  "primaryButtonLink": "/contact.html",
+  "secondaryButtonText": "View Projects",
+  "secondaryButtonLink": "/projects.html",
+  "introHeading": "Craftsmanship Backed by Experience",
+  "introCards": [
+    {
+      "title": "New Builds",
+      "text": "High-quality new homes delivered with careful planning, strong coordination and premium finish standards.",
+      "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "title": "Extensions",
+      "text": "Rear, side-return and full-width extensions designed to feel seamless, practical and visually considered.",
+      "image": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "title": "Renovations",
+      "text": "Whole-house renovations that improve layout, flow and finish while keeping delivery organised from start to finish.",
+      "image": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?auto=format&fit=crop&w=1200&q=80"
+    }
+  ],
+  "featureHeading": "Clear process. Better control. Less noise for the client.",
+  "features": [
+    {
+      "title": "Pre-start planning",
+      "text": "Scope review, sequence planning and early decisions made before work begins."
+    },
+    {
+      "title": "Managed delivery",
+      "text": "Day-to-day control and cleaner communication throughout the programme."
+    },
+    {
+      "title": "Detail-led finishes",
+      "text": "High standards carried through from shell to final handover."
+    }
+  ]
+}

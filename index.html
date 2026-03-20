@@ -1,40 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ROK</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROK</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
-    }
+<style>
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+  color: #1e293b;
+}
 
-    /* HEADER */
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 18px 24px;
-      background: #ffffff;
-      border-bottom: 1px solid #e5e7eb;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-    .logo {
-      font-size: 22px;
-      font-weight: 700;
+/* HEADER */
+header {
+  position: sticky;
+  top: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  z-index: 1000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+/* LOGO */
+.logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #1e3a5f;
+}
+
+/* NAV */
+.nav {
+  display: flex;
+  gap: 28px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #1e293b;
+  font-size: 15px;
+}
+
+/* RIGHT SIDE */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.phone {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.phone a {
+  text-decoration: none;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.divider {
+  color: #94a3b8;
+}
+
+/* BUTTON */
+.btn {
+  background: #1e3a5f;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/* HERO */
+.hero {
+  background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') center/cover no-repeat;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  color: white;
+  position: relative;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 35, 60, 0.75);
+}
+
+.hero-content {
+  position: relative;
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  margin-bottom: 25px;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-light {
+  background: white;
+  color: #1e3a5f;
+}
+
+/* SECTION */
+.section {
+  padding: 80px 0;
+}
+
+.section h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+
+  .nav {
+    display: none;
+  }
+
+  .phone {
+    display: none;
+  }
+
+  .btn {
+    display: none;
+  }
+
+  .hero {
+    height: auto;
+    padding: 80px 0;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container header-inner">
+
+    <div class="logo">ROK</div>
+
+    <nav class="nav">
+      <a href="#">Services</a>
+      <a href="#">Projects</a>
+      <a href="#">Areas We Cover</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+
+    <div class="header-right">
+
+      <div class="phone">
+        <a href="tel:01323409640">01323 409640</a>
+        <span class="divider">|</span>
+        <a href="tel:07383402127">07383 402127</a>
+      </div>
+
+      <a href="#" class="btn">Request a Consultation</a>
+
+    </div>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <h1>Building with Precision. Designed for Longevity.</h1>
+    <p>
+      New builds, extensions and renovations across the South East —
+      managed end-to-end.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-light">Request a Consultation</a>
+      <a href="#" class="btn">View Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION -->
+<section class="section">
+  <div class="container">
+
+    <h2>Craftsmanship Backed by Experience</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>New Builds</h3>
+        <p>High-quality new homes built with precision and care.</p>
+      </div>
+
+      <div class="card">
+        <h3>Extensions</h3>
+        <p>Expand your home with seamless, modern extensions.</p>
+      </div>
+
+      <div class="card">
+        <h3>Renovations</h3>
+        <p>Transform your property with full renovation services.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>      font-weight: 700;
       color: #1e3a5f;
     }
 

@@ -1,523 +1,192 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROK</title>
-  <style>
-    :root{
-      --bg:#f3f4f7;
-      --surface:#ffffff;
-      --text:#12284a;
-      --muted:#6b7280;
-      --line:#d8dde6;
-      --blue:#1f3f73;
-      --blue-dark:#17345f;
-      --shadow:0 10px 30px rgba(16,24,40,.08);
-      --container:1360px;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ROK | Premium Construction</title>
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+<style>
+:root{
+  --blue:#1e3a5f;
+  --light:#f7f9fc;
+  --text:#1a1a1a;
+  --muted:#6b7280;
+}
 
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: Arial, Helvetica, sans-serif;
-    }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  color:var(--text);
+  background:white;
+}
 
-    img{display:block;max-width:100%}
+/* HEADER */
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  border-bottom:1px solid #eee;
+  background:white;
+}
 
-    .container{
-      width:min(var(--container), calc(100% - 48px));
-      margin:0 auto;
-    }
+.logo img{
+  height:40px;
+}
 
-    .site-header{
-      background:rgba(255,255,255,.94);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
+.nav a{
+  margin-left:25px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:500;
+}
 
-    .header-inner{
-      min-height:86px;
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      align-items:center;
-      gap:28px;
-    }
+/* HERO */
+.hero{
+  height:80vh;
+  background:url('/mnt/data/3DE43B90-9FBC-415D-9C3C-2BCAB7E358A2.jpeg') center/cover;
+  display:flex;
+  align-items:center;
+  color:white;
+  position:relative;
+}
 
-    .brand{
-      display:flex;
-      align-items:center;
-      text-decoration:none;
-      color:inherit;
-    }
+.hero::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.4);
+}
 
-    .brand img{
-      height:42px;
-      width:auto;
-      object-fit:contain;
-    }
+.hero-content{
+  position:relative;
+  max-width:600px;
+  margin-left:60px;
+}
 
-    .nav{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:30px;
-    }
+.hero h1{
+  font-size:48px;
+  margin-bottom:20px;
+}
 
-    .nav a{
-      color:var(--text);
-      text-decoration:none;
-      font-size:15px;
-      line-height:1;
-    }
+.hero p{
+  font-size:18px;
+  margin-bottom:25px;
+}
 
-    .header-right{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      white-space:nowrap;
-    }
+.btn{
+  padding:12px 22px;
+  background:white;
+  color:black;
+  border:none;
+  border-radius:4px;
+  font-weight:bold;
+}
 
-    .numbers{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:15px;
-      color:var(--text);
-    }
+/* SERVICES */
+.section{
+  padding:80px 40px;
+  background:var(--light);
+}
 
-    .numbers a{
-      color:var(--text);
-      text-decoration:none;
-    }
+.section h2{
+  text-align:center;
+  margin-bottom:40px;
+}
 
-    .divider{
-      color:#98a2b3;
-    }
+.cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:46px;
-      padding:0 20px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:15px;
-      transition:.2s ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
+.card{
+  background:white;
+  padding:25px;
+  border-radius:8px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
 
-    .btn-primary{
-      background:var(--blue);
-      color:#fff;
-    }
+/* CTA */
+.cta{
+  padding:80px 40px;
+  text-align:center;
+}
 
-    .btn-primary:hover{
-      background:var(--blue-dark);
-    }
+.cta h2{
+  margin-bottom:20px;
+}
 
-    .btn-secondary{
-      background:#fff;
-      color:var(--text);
-      border-color:var(--line);
-    }
+.cta button{
+  background:var(--blue);
+  color:white;
+  padding:14px 26px;
+  border:none;
+  border-radius:4px;
+}
 
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:30px;
-      color:var(--blue);
-      padding:0;
-      line-height:1;
-      cursor:pointer;
-    }
+/* FOOTER */
+.footer{
+  background:#111;
+  color:white;
+  padding:40px;
+  text-align:center;
+}
 
-    .hero-wrap{
-      padding:34px 0 28px;
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      border-radius:36px;
-      min-height:680px;
-      background:#0f1f3a;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-image{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      background:#dfe5ec;
-    }
-
-    .hero-overlay{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg, rgba(9,20,42,.78) 0%, rgba(9,20,42,.58) 34%, rgba(9,20,42,.20) 62%, rgba(9,20,42,.10) 100%);
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:min(560px, 100%);
-      padding:92px 0 78px 56px;
-      color:#fff;
-    }
-
-    .hero-title{
-      margin:0 0 22px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:68px;
-      line-height:.98;
-      letter-spacing:-.03em;
-      font-weight:500;
-    }
-
-    .hero-subtitle{
-      margin:0 0 28px;
-      max-width:540px;
-      color:rgba(255,255,255,.92);
-      font-size:18px;
-      line-height:1.6;
-    }
-
-    .hero-actions{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:28px;
-    }
-
-    .hero-tags{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      color:rgba(255,255,255,.92);
-      font-size:14px;
-    }
-
-    .hero-tags span{
-      position:relative;
-    }
-
-    .hero-tags span:not(:last-child)::after{
-      content:"•";
-      position:absolute;
-      right:-12px;
-      top:0;
-      color:rgba(255,255,255,.55);
-    }
-
-    .section{
-      padding:22px 0 70px;
-    }
-
-    .section-title{
-      margin:0 0 30px;
-      text-align:center;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight:500;
-      font-size:56px;
-      letter-spacing:-.03em;
-      color:var(--text);
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .card{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 4px 18px rgba(16,24,40,.04);
-    }
-
-    .card-image{
-      aspect-ratio:16/10;
-      width:100%;
-      object-fit:cover;
-      background:#e8edf4;
-    }
-
-    .card-body{
-      padding:18px 18px 20px;
-    }
-
-    .card-title{
-      margin:0 0 8px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:24px;
-      line-height:1.08;
-      font-weight:500;
-      color:var(--text);
-    }
-
-    .card-text{
-      margin:0;
-      color:#4f5e73;
-      font-size:16px;
-      line-height:1.55;
-    }
-
-    @media (max-width: 1180px){
-      .nav{gap:22px}
-      .numbers{font-size:14px}
-      .hero-title{font-size:58px}
-      .section-title{font-size:48px}
-    }
-
-    @media (max-width: 980px){
-      .container{width:min(var(--container), calc(100% - 28px))}
-
-      .header-inner{
-        grid-template-columns:auto auto;
-        justify-content:space-between;
-        min-height:88px;
-      }
-
-      .nav,
-      .numbers,
-      .header-right .btn{
-        display:none;
-      }
-
-      .menu-toggle{
-        display:block;
-      }
-
-      .hero-wrap{
-        padding:22px 0 22px;
-      }
-
-      .hero{
-        min-height:auto;
-        border-radius:28px;
-      }
-
-      .hero-content{
-        width:100%;
-        padding:44px 34px 26px;
-      }
-
-      .hero-title{
-        font-size:34px;
-        line-height:1.02;
-      }
-
-      .hero-subtitle{
-        font-size:15px;
-        line-height:1.55;
-      }
-
-      .hero-actions{
-        flex-direction:column;
-        align-items:stretch;
-      }
-
-      .hero-actions .btn{
-        width:100%;
-        min-height:58px;
-        border-radius:18px;
-        font-size:16px;
-      }
-
-      .hero-tags{
-        justify-content:flex-start;
-        gap:16px;
-        font-size:13px;
-      }
-
-      .cards{
-        grid-template-columns:1fr;
-      }
-
-      .section{
-        padding-top:14px;
-      }
-
-      .section-title{
-        text-align:left;
-        font-size:32px;
-        line-height:1.05;
-        margin-bottom:22px;
-      }
-    }
-  </style>
+</style>
 </head>
+
 <body>
 
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="/assets/images/general/logo.png" alt="ROK">
-      </a>
+<header class="header">
+  <div class="logo">
+    <img src="/mnt/data/E9240A6E-E443-4025-9D00-4FC588B0A7E4.png" alt="ROK Logo">
+  </div>
 
-      <nav class="nav">
-        <a href="/services.html">Services</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/areas.html">Areas We Cover</a>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
-      </nav>
+  <nav class="nav">
+    <a href="#">Home</a>
+    <a href="#">Services</a>
+    <a href="#">Projects</a>
+    <a href="#">Areas</a>
+    <a href="#">Contact</a>
+  </nav>
+</header>
 
-      <div class="header-right">
-        <div class="numbers">
-          <a href="tel:01323409640">01323 409640</a>
-          <span class="divider">|</span>
-          <a href="tel:07383402127">07383 402127</a>
-        </div>
-        <a class="btn btn-primary" href="/contact.html">Request a Consultation</a>
-        <button class="menu-toggle" aria-label="Menu">☰</button>
-      </div>
+<section class="hero">
+  <div class="hero-content">
+    <h1>Premium Construction Across the South East</h1>
+    <p>Bespoke builds, extensions and renovations delivered with precision and care.</p>
+    <button class="btn">Request Consultation</button>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Our Services</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>New Builds</h3>
+      <p>High-end residential builds tailored to your vision.</p>
     </div>
-  </header>
+    <div class="card">
+      <h3>Extensions</h3>
+      <p>Transform your space with modern, functional extensions.</p>
+    </div>
+    <div class="card">
+      <h3>Renovations</h3>
+      <p>Full refurbishments with premium finishes.</p>
+    </div>
+  </div>
+</section>
 
-  <main>
-    <section class="hero-wrap">
-      <div class="container">
-        <div class="hero">
-          <img id="hero-image" class="hero-image" src="/assets/images/general/hero_house_clean.png" alt="ROK residential construction">
-          <div class="hero-overlay"></div>
+<section class="cta">
+  <h2>Ready to start your project?</h2>
+  <button>Get in touch</button>
+</section>
 
-          <div class="hero-content">
-            <h1 id="hero-title" class="hero-title">Building with Precision. Designed for Longevity.</h1>
+<footer class="footer">
+  <p>© ROK Construction</p>
+</footer>
 
-            <p id="hero-subtitle" class="hero-subtitle">
-              New builds, extensions and renovations across the South East — managed end-to-end.
-            </p>
-
-            <div class="hero-actions">
-              <a id="btn-primary" class="btn btn-primary" href="/contact.html">Request a Consultation</a>
-              <a id="btn-secondary" class="btn btn-secondary" href="/projects.html">View Projects</a>
-            </div>
-
-            <div class="hero-tags">
-              <span>New builds</span>
-              <span>Extensions</span>
-              <span>Renovations</span>
-              <span>Groundworks</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Craftsmanship Backed by Experience</h2>
-
-        <div class="cards" id="services-grid"></div>
-      </div>
-    </section>
-  </main>
-
-  <script>
-    const fallbackData = {
-      hero_title: "Building with Precision. Designed for Longevity.",
-      hero_subtitle: "New builds, extensions and renovations across the South East — managed end-to-end.",
-      button_primary: "Request a Consultation",
-      button_secondary: "View Projects",
-      hero_image: "/assets/images/general/hero_house_clean.png",
-      services: [
-        {
-          title: "New Builds",
-          description: "High-quality new homes built with precision and care.",
-          image: "/assets/images/projects/project-1.jpg"
-        },
-        {
-          title: "Extensions",
-          description: "Expand your home with seamless modern extensions.",
-          image: "/assets/images/projects/project-2.jpg"
-        },
-        {
-          title: "Renovations",
-          description: "Transform your property with full renovation services.",
-          image: "/assets/images/projects/project-3.jpg"
-        }
-      ]
-    };
-
-    function renderHomepage(data){
-      document.getElementById('hero-title').textContent = data.hero_title || fallbackData.hero_title;
-      document.getElementById('hero-subtitle').textContent = data.hero_subtitle || fallbackData.hero_subtitle;
-      document.getElementById('btn-primary').textContent = data.button_primary || fallbackData.button_primary;
-      document.getElementById('btn-secondary').textContent = data.button_secondary || fallbackData.button_secondary;
-
-      const heroImage = document.getElementById('hero-image');
-      heroImage.src = data.hero_image || fallbackData.hero_image;
-      heroImage.onerror = function(){
-        heroImage.src = fallbackData.hero_image;
-      };
-
-      const services = Array.isArray(data.services) && data.services.length ? data.services : fallbackData.services;
-      const grid = document.getElementById('services-grid');
-      grid.innerHTML = '';
-
-      services.slice(0, 3).forEach(function(service, index){
-        const fallbackService = fallbackData.services[index] || fallbackData.services[0];
-
-        const card = document.createElement('article');
-        card.className = 'card';
-
-        const img = document.createElement('img');
-        img.className = 'card-image';
-        img.src = service.image || fallbackService.image;
-        img.alt = service.title || fallbackService.title;
-        img.onerror = function(){
-          img.src = fallbackService.image;
-        };
-
-        const body = document.createElement('div');
-        body.className = 'card-body';
-
-        const title = document.createElement('h3');
-        title.className = 'card-title';
-        title.textContent = service.title || fallbackService.title;
-
-        const text = document.createElement('p');
-        text.className = 'card-text';
-        text.textContent = service.description || fallbackService.description;
-
-        body.appendChild(title);
-        body.appendChild(text);
-        card.appendChild(img);
-        card.appendChild(body);
-        grid.appendChild(card);
-      });
-    }
-
-    fetch('/content/homepage.json')
-      .then(function(res){
-        if(!res.ok) throw new Error('JSON not found');
-        return res.json();
-      })
-      .then(function(data){
-        renderHomepage(data);
-      })
-      .catch(function(){
-        renderHomepage(fallbackData);
-      });
-  </script>
 </body>
 </html>

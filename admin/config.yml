@@ -2,118 +2,15 @@ backend:
   name: git-gateway
   branch: main
 
-local_backend: false
-
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
-  - name: "settings"
-    label: "Site Settings"
-    files:
-      - label: "Site"
-        name: "site"
-        file: "content/site.json"
-        format: "json"
-        fields:
-          - { label: "Site Name", name: "siteName", widget: "string" }
-          - { label: "Phone 1", name: "phone1", widget: "string" }
-          - { label: "Phone 2", name: "phone2", widget: "string" }
-          - { label: "Email", name: "email", widget: "string" }
-          - { label: "CTA Text", name: "ctaText", widget: "string" }
-          - { label: "CTA Link", name: "ctaLink", widget: "string" }
   - name: "pages"
     label: "Pages"
     files:
-      - label: "Homepage"
-        name: "homepage"
-        file: "content/homepage.json"
-        format: "json"
-        fields:
-          - { label: "Eyebrow", name: "eyebrow", widget: "string" }
-          - { label: "Headline", name: "headline", widget: "string" }
-          - { label: "Subheadline", name: "subheadline", widget: "text" }
-          - { label: "Hero Image", name: "heroImage", widget: "image" }
-          - { label: "Primary Button Text", name: "primaryButtonText", widget: "string" }
-          - { label: "Primary Button Link", name: "primaryButtonLink", widget: "string" }
-          - { label: "Secondary Button Text", name: "secondaryButtonText", widget: "string" }
-          - { label: "Secondary Button Link", name: "secondaryButtonLink", widget: "string" }
-          - { label: "Intro Heading", name: "introHeading", widget: "string" }
-          - label: "Intro Cards"
-            name: "introCards"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Text", name: "text", widget: "text" }
-              - { label: "Image", name: "image", widget: "image" }
-          - { label: "Feature Heading", name: "featureHeading", widget: "string" }
-          - label: "Features"
-            name: "features"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Text", name: "text", widget: "text" }
-      - label: "Services"
-        name: "services"
-        file: "content/services.json"
-        format: "json"
+      - file: "index.html"
+        label: "Homepage"
+        name: "home"
         fields:
           - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - label: "Service Items"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.title}}"
-            fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Summary", name: "summary", widget: "text" }
-              - { label: "Image", name: "image", widget: "image" }
-      - label: "Areas"
-        name: "areas"
-        file: "content/areas.json"
-        format: "json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - label: "Areas"
-            name: "items"
-            widget: "list"
-            summary: "{{fields.name}}"
-            fields:
-              - { label: "Name", name: "name", widget: "string" }
-              - { label: "Text", name: "text", widget: "text" }
-      - label: "About"
-        name: "about"
-        file: "content/about.json"
-        format: "json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - label: "Body Paragraphs"
-            name: "body"
-            widget: "list"
-            field: { label: "Paragraph", name: "paragraph", widget: "text" }
-      - label: "Contact"
-        name: "contact"
-        file: "content/contact.json"
-        format: "json"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Intro", name: "intro", widget: "text" }
-          - { label: "Response Text", name: "response", widget: "text" }
-          - { label: "Map Note", name: "mapNote", widget: "text" }
-  - name: "projects"
-    label: "Projects"
-    folder: "content/projects"
-    create: true
-    slug: "{{slug}}"
-    extension: "json"
-    format: "json"
-    summary: "{{fields.title}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Location", name: "location", widget: "string" }
-      - { label: "Summary", name: "summary", widget: "text" }
-      - { label: "Image", name: "image", widget: "image" }

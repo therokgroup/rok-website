@@ -1,111 +1,518 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ROK Group</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROK</title>
+  <style>
+    :root{
+      --bg:#f3f4f7;
+      --surface:#ffffff;
+      --text:#12284a;
+      --muted:#6b7280;
+      --line:#d8dde6;
+      --blue:#1f3f73;
+      --blue-dark:#17345f;
+      --shadow:0 10px 30px rgba(16,24,40,.08);
+      --radius:28px;
+      --container:1360px;
+    }
 
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+    }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: white;
-}
+    img{display:block;max-width:100%}
 
-.logo {
-  font-weight: bold;
-  font-size: 24px;
-}
+    .container{
+      width:min(var(--container), calc(100% - 48px));
+      margin:0 auto;
+    }
 
-.hero {
-  position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  margin: 40px;
-}
+    .site-header{
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:1000;
+    }
 
-.hero img {
-  width: 100%;
-  height: 500px;
-  object-fit: cover;
-}
+    .header-inner{
+      min-height:86px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:28px;
+    }
 
-.hero-content {
-  position: absolute;
-  top: 50%;
-  left: 40px;
-  transform: translateY(-50%);
-  color: white;
-  max-width: 500px;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      text-decoration:none;
+      color:inherit;
+    }
 
-.hero h1 {
-  font-size: 42px;
-  margin-bottom: 20px;
-}
+    .brand img{
+      height:42px;
+      width:auto;
+      object-fit:contain;
+    }
 
-.hero p {
-  margin-bottom: 20px;
-}
+    .nav{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap:30px;
+    }
 
-.buttons a {
-  display: inline-block;
-  padding: 12px 20px;
-  margin-right: 10px;
-  border-radius: 8px;
-  text-decoration: none;
-}
+    .nav a{
+      color:var(--text);
+      text-decoration:none;
+      font-size:15px;
+      line-height:1;
+    }
 
-.btn-primary {
-  background: #1e2f4f;
-  color: white;
-}
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:18px;
+      white-space:nowrap;
+    }
 
-.btn-secondary {
-  background: white;
-  color: black;
-}
-</style>
+    .numbers{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-size:15px;
+      color:var(--text);
+    }
+
+    .numbers a{
+      color:var(--text);
+      text-decoration:none;
+    }
+
+    .divider{
+      color:#98a2b3;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:46px;
+      padding:0 20px;
+      border-radius:12px;
+      text-decoration:none;
+      font-weight:600;
+      font-size:15px;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      color:#fff;
+    }
+
+    .btn-primary:hover{
+      background:var(--blue-dark);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border-color:var(--line);
+    }
+
+    .menu-toggle{
+      display:none;
+      background:none;
+      border:none;
+      font-size:30px;
+      color:var(--blue);
+      padding:0;
+      line-height:1;
+    }
+
+    .hero-wrap{
+      padding:34px 0 28px;
+    }
+
+    .hero{
+      position:relative;
+      overflow:hidden;
+      border-radius:36px;
+      min-height:680px;
+      background:#0f1f3a;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-image{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(9,20,42,.76) 0%, rgba(9,20,42,.56) 34%, rgba(9,20,42,.18) 62%, rgba(9,20,42,.10) 100%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(560px, 100%);
+      padding:92px 0 78px 56px;
+      color:#fff;
+    }
+
+    .hero-kicker{
+      display:none;
+    }
+
+    .hero-title{
+      margin:0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:68px;
+      line-height:.98;
+      letter-spacing:-.03em;
+      font-weight:500;
+    }
+
+    .hero-subtitle{
+      margin:0 0 28px;
+      max-width:540px;
+      color:rgba(255,255,255,.92);
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .hero-actions{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .hero-tags{
+      display:flex;
+      gap:18px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.92);
+      font-size:14px;
+    }
+
+    .hero-tags span{
+      position:relative;
+    }
+
+    .hero-tags span:not(:last-child)::after{
+      content:"•";
+      position:absolute;
+      right:-12px;
+      top:0;
+      color:rgba(255,255,255,.55);
+    }
+
+    .section{
+      padding:22px 0 70px;
+    }
+
+    .section-title{
+      margin:0 0 30px;
+      text-align:center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight:500;
+      font-size:56px;
+      letter-spacing:-.03em;
+      color:var(--text);
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:22px;
+    }
+
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:0 4px 18px rgba(16,24,40,.04);
+    }
+
+    .card-image{
+      aspect-ratio:16/10;
+      width:100%;
+      object-fit:cover;
+      background:#e8edf4;
+    }
+
+    .card-body{
+      padding:18px 18px 20px;
+    }
+
+    .card-title{
+      margin:0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:24px;
+      line-height:1.08;
+      font-weight:500;
+      color:var(--text);
+    }
+
+    .card-text{
+      margin:0;
+      color:#4f5e73;
+      font-size:16px;
+      line-height:1.55;
+    }
+
+    @media (max-width: 1180px){
+      .nav{gap:22px}
+      .numbers{font-size:14px}
+      .hero-title{font-size:58px}
+      .section-title{font-size:48px}
+    }
+
+    @media (max-width: 980px){
+      .container{width:min(var(--container), calc(100% - 28px))}
+      .header-inner{
+        grid-template-columns:auto auto;
+        justify-content:space-between;
+        min-height:88px;
+      }
+      .nav,
+      .numbers,
+      .header-right .btn{
+        display:none;
+      }
+      .menu-toggle{
+        display:block;
+      }
+      .hero-wrap{
+        padding:22px 0 22px;
+      }
+      .hero{
+        min-height:auto;
+        border-radius:28px;
+      }
+      .hero-content{
+        width:100%;
+        padding:56px 34px 34px;
+      }
+      .hero-title{
+        font-size:44px;
+        line-height:1.02;
+      }
+      .hero-subtitle{
+        font-size:16px;
+        line-height:1.55;
+      }
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+      .hero-actions .btn{
+        width:100%;
+        min-height:58px;
+        border-radius:18px;
+        font-size:16px;
+      }
+      .hero-tags{
+        justify-content:flex-start;
+        gap:16px;
+        font-size:13px;
+      }
+      .cards{
+        grid-template-columns:1fr;
+      }
+      .section{
+        padding-top:14px;
+      }
+      .section-title{
+        text-align:left;
+        font-size:32px;
+        line-height:1.05;
+        margin-bottom:22px;
+      }
+    }
+
+    @media (max-width: 560px){
+      .brand img{height:44px}
+      .hero-content{padding:44px 34px 26px}
+      .hero-title{font-size:34px}
+      .hero-subtitle{font-size:15px}
+      .card-title{font-size:20px}
+      .card-text{font-size:15px}
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  <div class="logo">ROK</div>
-</header>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/">
+        <img src="/assets/images/general/logo.png" alt="ROK">
+      </a>
 
-<section class="hero">
-  <img id="hero-image" src="" alt="">
-  <div class="hero-content">
-    <h1 id="hero-title"></h1>
-    <p id="hero-subtitle"></p>
+      <nav class="nav">
+        <a href="/services.html">Services</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/areas.html">Areas We Cover</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
 
-    <div class="buttons">
-      <a id="btn-primary" class="btn-primary"></a>
-      <a id="btn-secondary" class="btn-secondary"></a>
+      <div class="header-right">
+        <div class="numbers">
+          <a href="tel:01323409640">01323 409640</a>
+          <span class="divider">|</span>
+          <a href="tel:07383402127">07383 402127</a>
+        </div>
+        <a class="btn btn-primary" href="/contact.html">Request a Consultation</a>
+        <button class="menu-toggle" aria-label="Menu">☰</button>
+      </div>
     </div>
-  </div>
-</section>
+  </header>
 
-<script>
-fetch('/content/homepage.json')
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById('hero-title').innerText = data.hero_title;
-    document.getElementById('hero-subtitle').innerText = data.hero_subtitle;
-    document.getElementById('btn-primary').innerText = data.button_primary;
-    document.getElementById('btn-secondary').innerText = data.button_secondary;
-    document.getElementById('hero-image').src = data.hero_image;
-  });
-</script>
+  <main>
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero">
+          <img id="hero-image" class="hero-image" src="/assets/images/general/hero_house_clean.png" alt="ROK residential construction">
+          <div class="hero-overlay"></div>
 
+          <div class="hero-content">
+            <div id="hero-kicker" class="hero-kicker"></div>
+
+            <h1 id="hero-title" class="hero-title">
+              Building with Precision. Designed for Longevity.
+            </h1>
+
+            <p id="hero-subtitle" class="hero-subtitle">
+              New builds, extensions and renovations across the South East — managed end-to-end.
+            </p>
+
+            <div class="hero-actions">
+              <a id="btn-primary" class="btn btn-primary" href="/contact.html">Request a Consultation</a>
+              <a id="btn-secondary" class="btn btn-secondary" href="/projects.html">View Projects</a>
+            </div>
+
+            <div class="hero-tags">
+              <span>New builds</span>
+              <span>Extensions</span>
+              <span>Renovations</span>
+              <span>Groundworks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Craftsmanship Backed by Experience</h2>
+
+        <div class="cards" id="services-grid">
+          <article class="card">
+            <img class="card-image" src="/assets/images/projects/project-1.jpg" alt="New builds">
+            <div class="card-body">
+              <h3 class="card-title">New Builds</h3>
+              <p class="card-text">High-quality new homes built with precision and care.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="/assets/images/projects/project-2.jpg" alt="Extensions">
+            <div class="card-body">
+              <h3 class="card-title">Extensions</h3>
+              <p class="card-text">Expand your home with seamless modern extensions.</p>
+            </div>
+          </article>
+
+          <article class="card">
+            <img class="card-image" src="/assets/images/projects/project-3.jpg" alt="Renovations">
+            <div class="card-body">
+              <h3 class="card-title">Renovations</h3>
+              <p class="card-text">Transform your property with full renovation services.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    fetch('/content/homepage.json')
+      .then(function(res){ return res.json(); })
+      .then(function(data){
+        if(data.hero_title){
+          document.getElementById('hero-title').textContent = data.hero_title;
+        }
+        if(data.hero_subtitle){
+          document.getElementById('hero-subtitle').textContent = data.hero_subtitle;
+        }
+        if(data.button_primary){
+          document.getElementById('btn-primary').textContent = data.button_primary;
+        }
+        if(data.button_secondary){
+          document.getElementById('btn-secondary').textContent = data.button_secondary;
+        }
+        if(data.hero_image){
+          document.getElementById('hero-image').src = data.hero_image;
+        }
+
+        if(Array.isArray(data.services) && data.services.length){
+          var grid = document.getElementById('services-grid');
+          grid.innerHTML = '';
+
+          data.services.slice(0,3).forEach(function(service){
+            var card = document.createElement('article');
+            card.className = 'card';
+
+            var img = document.createElement('img');
+            img.className = 'card-image';
+            img.src = service.image || '/assets/images/projects/project-1.jpg';
+            img.alt = service.title || '';
+
+            var body = document.createElement('div');
+            body.className = 'card-body';
+
+            var title = document.createElement('h3');
+            title.className = 'card-title';
+            title.textContent = service.title || '';
+
+            var text = document.createElement('p');
+            text.className = 'card-text';
+            text.textContent = service.description || '';
+
+            body.appendChild(title);
+            body.appendChild(text);
+            card.appendChild(img);
+            card.appendChild(body);
+            grid.appendChild(card);
+          });
+        }
+      })
+      .catch(function(err){
+        console.log('Homepage content load error:', err);
+      });
+  </script>
 </body>
 </html>

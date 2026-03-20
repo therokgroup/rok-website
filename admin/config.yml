@@ -6,11 +6,23 @@ media_folder: "assets/images"
 public_folder: "/assets/images"
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "homepage"
+    label: "Homepage"
     files:
-      - file: "index.html"
-        label: "Homepage"
+      - file: "content/homepage.json"
+        label: "Homepage Content"
         name: "home"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Hero Title", name: "hero_title", widget: "string" }
+          - { label: "Hero Subtitle", name: "hero_subtitle", widget: "text" }
+          - { label: "Primary Button Text", name: "button_primary", widget: "string" }
+          - { label: "Secondary Button Text", name: "button_secondary", widget: "string" }
+          - { label: "Hero Image", name: "hero_image", widget: "image" }
+
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }

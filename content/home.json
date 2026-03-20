@@ -1,0 +1,64 @@
+{
+  "hero": {
+    "title": "Premium Construction Across the South East",
+    "text": "Bespoke builds, extensions and renovations delivered with precision and care.",
+    "button": "Request Consultation",
+    "image": "assets/images/hero-van.jpg"
+  },
+  "servicesHeading": "Our Services",
+  "services": [
+    {
+      "title": "New Builds",
+      "text": "High-end residential builds tailored to your vision.",
+      "icon": "\u2302"
+    },
+    {
+      "title": "Extensions",
+      "text": "Transform your space with modern, functional extensions.",
+      "icon": "\u25a4"
+    },
+    {
+      "title": "Renovations",
+      "text": "Full refurbishments with premium finishes.",
+      "icon": "\u25a6"
+    }
+  ],
+  "values": [
+    {
+      "title": "Bespoke",
+      "text": "Tailored new build and refurbishment projects shaped around each client brief."
+    },
+    {
+      "title": "Managed",
+      "text": "Clear communication, sequencing and site oversight throughout the build."
+    },
+    {
+      "title": "Refined",
+      "text": "Premium materials, clean finishes and careful attention to the final detail."
+    },
+    {
+      "title": "Reliable",
+      "text": "A local contractor focused on workmanship, accountability and consistency."
+    }
+  ],
+  "whyChoose": {
+    "title": "Why clients choose ROK",
+    "text": "We combine skilled site delivery with a reliable, straightforward approach that keeps projects moving and standards high.",
+    "tags": [
+      "End-to-end project management",
+      "Clear communication",
+      "High-spec finishes",
+      "Trusted local contractor",
+      "Clean, organised sites"
+    ]
+  },
+  "quote": {
+    "quote": "\u201cProfessional, organised and meticulous from start to finish. The result feels every bit as premium as we hoped.\u201d",
+    "text": "A client-first approach, careful sequencing and strong workmanship shape the experience from first meeting to final handover."
+  },
+  "cta": {
+    "title": "Ready to discuss your project?",
+    "text": "Speak with The Rok Group about a new build, extension or renovation across the South East. We\u2019ll arrange an initial conversation and advise on the best next step."
+  },
+  "footerLine": "The Rok Group"
+}

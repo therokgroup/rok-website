@@ -1,0 +1,32 @@
+{
+  "metaTitle": "Services",
+  "title": "Our Services",
+  "intro": "A high-end residential construction offering designed for clients who want a reliable team and a polished result.",
+  "heroImage": "assets/images/hero-van.jpg",
+  "cards": [
+    {
+      "title": "New Builds",
+      "text": "Bespoke family homes delivered from enabling works and structure through to interior completion and external detailing."
+    },
+    {
+      "title": "Extensions",
+      "text": "Kitchen extensions, side returns and larger reconfigurations that improve flow, light and long-term value."
+    },
+    {
+      "title": "Renovations",
+      "text": "Full refurbishments and structural upgrades that transform existing homes into calm, functional spaces."
+    },
+    {
+      "title": "Project Management",
+      "text": "Clear sequencing, communication and site oversight from early planning to final handover."
+    },
+    {
+      "title": "Groundworks",
+      "text": "Enabling works, foundations, drainage and structural preparation carried out with care."
+    },
+    {
+      "title": "Finishing Packages",
+      "text": "Joinery, decorating and premium finishing details to complete the project properly."
+    }
+  ]
+}

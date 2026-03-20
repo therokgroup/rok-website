@@ -1,0 +1,93 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Rok Group</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html"><img data-logo src="assets/images/logo.png" alt="ROK"></a>
+        <nav class="nav">
+          <a data-nav="home" href="index.html">Home</a>
+          <a data-nav="services" href="services.html">Services</a>
+          <a data-nav="projects" href="projects.html">Projects</a>
+          <a data-nav="areas" href="areas.html">Areas</a>
+          <a data-nav="contact" href="contact.html">Contact</a>
+        </nav>
+        <div class="header-right">
+          <a class="phone-pill" data-phone href="tel:01323409640">01323 409640</a>
+          <a class="btn desktop-only" href="contact.html">Request Consultation</a>
+          <button class="menu-button" type="button" aria-label="Open menu" data-menu-toggle></button>
+        </div>
+      </div>
+      <nav class="mobile-nav">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="areas.html">Areas</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+<main>
+  <section class="page-hero">
+    <div class="media"><img data-page-image src="assets/images/hero-van.jpg" alt=""></div>
+    <div class="container inner">
+      <h1 data-page-title>Contact The Rok Group</h1>
+      <p data-page-text></p>
+    </div>
+  </section>
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+        <article class="panel form-card">
+          <h3 style="margin:0 0 14px;font-size:22px;color:#203049">Send an enquiry</h3>
+          <div class="notice" data-contact-note></div>
+          <div style="height:12px"></div>
+          <input type="text" placeholder="Your name">
+          <input type="email" placeholder="Email address">
+          <input type="text" placeholder="Phone number">
+          <textarea placeholder="Tell us about your project"></textarea>
+          <button class="btn" type="button">Send Enquiry</button>
+        </article>
+        <article class="panel">
+          <h3 style="margin:0 0 14px;font-size:22px;color:#203049">Contact details</h3>
+          <p style="margin-bottom:10px"><strong>Phone:</strong> <a data-phone href="tel:01323409640">01323 409640</a></p>
+          <p style="margin-bottom:10px"><strong>Email:</strong> <a data-email href="mailto:info@therokgroup.co.uk">info@therokgroup.co.uk</a></p>
+          <p><strong>Company:</strong> <span data-site-name>The Rok Group</span></p>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+    <script>window.addEventListener('DOMContentLoaded', ()=> ROK.renderPage('contact', 'content/contact.json'));</script>
+
+    <footer class="footer">
+      <div class="container footer-inner">
+        <div class="brand">
+          <img data-logo src="assets/images/logo.png" alt="ROK">
+          <p>© <span data-year></span> <span data-company-line>The Rok Group</span></p>
+        </div>
+        <div class="stack">
+          <h4>Links</h4>
+          <a href="services.html">Services</a>
+          <a href="projects.html">Projects</a>
+          <a href="areas.html">Areas</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <p><a data-phone href="tel:01323409640">01323 409640</a></p>
+          <p><a data-email href="mailto:info@therokgroup.co.uk">info@therokgroup.co.uk</a></p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

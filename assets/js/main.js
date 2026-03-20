@@ -1,9 +1,0 @@
-
-const toggle = document.querySelector('.menu-toggle');
-const panel = document.querySelector('.mobile-panel');
-if (toggle && panel) {
-  toggle.addEventListener('click', () => {
-    const open = panel.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-  });
-}

@@ -1,1 +1,0 @@
-document.addEventListener('DOMContentLoaded',()=>{const b=document.querySelector('.menu-btn');const d=document.querySelector('.mobile-drawer');if(b&&d){b.addEventListener('click',()=>d.classList.toggle('open'));}});

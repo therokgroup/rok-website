@@ -1,1 +1,0 @@
-const t=document.querySelector('.menu-toggle');const p=document.querySelector('.mobile-panel');if(t&&p){t.addEventListener('click',()=>{const o=p.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});}

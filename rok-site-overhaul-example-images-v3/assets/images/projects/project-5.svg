@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
-<defs><linearGradient id="sky" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#dfe6ef"/><stop offset="55%" stop-color="#eef2f8"/><stop offset="100%" stop-color="#c8d2df"/></linearGradient>
-<linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#b7c4d5"/><stop offset="100%" stop-color="#7f90a9"/></linearGradient>
-<linearGradient id="overlay" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#183B6B" stop-opacity="0.14"/><stop offset="100%" stop-color="#B6BEC9" stop-opacity="0.10"/></linearGradient></defs>
-<rect width="1600" height="1000" fill="url(#sky)"/><rect y="650" width="1600" height="350" fill="#a2b0c2"/><rect y="680" width="1600" height="320" fill="#8898ad"/>
-<rect x="170" y="445" width="1260" height="265" rx="8" fill="#d5ba98"/><rect x="250" y="315" width="420" height="180" fill="#c7a57e"/><rect x="720" y="330" width="560" height="200" fill="#ae8f6c"/><polygon points="240,445 450,260 690,445" fill="#22334f"/><polygon points="700,330 990,175 1310,330" fill="#182c4c"/>
-<rect x="650" y="420" width="400" height="220" fill="url(#glass)" stroke="#324866" stroke-width="16"/><rect x="700" y="460" width="140" height="160" fill="#e9f0f7" opacity="0.7"/><rect x="860" y="460" width="150" height="160" fill="#dce6f0" opacity="0.65"/><rect x="230" y="545" width="1100" height="20" fill="#1f2f4a"/><rect width="1600" height="1000" fill="url(#overlay)"/></svg>

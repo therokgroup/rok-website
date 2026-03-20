@@ -1,0 +1,26 @@
+{
+  "title": "Our Services",
+  "intro": "Core residential construction delivered with cleaner planning, better coordination and premium finish standards.",
+  "items": [
+    {
+      "title": "New Builds",
+      "summary": "Fully managed residential new-build projects delivered from groundworks through to handover.",
+      "image": "/assets/images/uploads/service-new-builds.jpg"
+    },
+    {
+      "title": "Extensions",
+      "summary": "Rear, side-return and full-width extensions designed to feel seamless and practical.",
+      "image": "/assets/images/uploads/service-extensions.jpg"
+    },
+    {
+      "title": "Renovations",
+      "summary": "Whole-house renovation work focused on stronger layouts, cleaner finishes and better flow.",
+      "image": "/assets/images/uploads/service-renovations.jpg"
+    },
+    {
+      "title": "Groundworks",
+      "summary": "Enabling works, drainage, slabs and external preparation for controlled project starts.",
+      "image": "/assets/images/uploads/service-side-return.jpg"
+    }
+  ]
+}

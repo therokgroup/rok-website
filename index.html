@@ -1,518 +1,311 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROK</title>
-  <style>
-    :root{
-      --bg:#f3f4f7;
-      --surface:#ffffff;
-      --text:#12284a;
-      --muted:#6b7280;
-      --line:#d8dde6;
-      --blue:#1f3f73;
-      --blue-dark:#17345f;
-      --shadow:0 10px 30px rgba(16,24,40,.08);
-      --radius:28px;
-      --container:1360px;
-    }
-
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: Inter, Arial, Helvetica, sans-serif;
-    }
-
-    img{display:block;max-width:100%}
-
-    .container{
-      width:min(var(--container), calc(100% - 48px));
-      margin:0 auto;
-    }
-
-    .site-header{
-      background:rgba(255,255,255,.92);
-      backdrop-filter: blur(10px);
-      border-bottom:1px solid var(--line);
-      position:sticky;
-      top:0;
-      z-index:1000;
-    }
-
-    .header-inner{
-      min-height:86px;
-      display:grid;
-      grid-template-columns:auto 1fr auto;
-      align-items:center;
-      gap:28px;
-    }
-
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:12px;
-      text-decoration:none;
-      color:inherit;
-    }
-
-    .brand img{
-      height:42px;
-      width:auto;
-      object-fit:contain;
-    }
-
-    .nav{
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      gap:30px;
-    }
-
-    .nav a{
-      color:var(--text);
-      text-decoration:none;
-      font-size:15px;
-      line-height:1;
-    }
-
-    .header-right{
-      display:flex;
-      align-items:center;
-      gap:18px;
-      white-space:nowrap;
-    }
-
-    .numbers{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-size:15px;
-      color:var(--text);
-    }
-
-    .numbers a{
-      color:var(--text);
-      text-decoration:none;
-    }
-
-    .divider{
-      color:#98a2b3;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:46px;
-      padding:0 20px;
-      border-radius:12px;
-      text-decoration:none;
-      font-weight:600;
-      font-size:15px;
-      transition:.2s ease;
-      border:1px solid transparent;
-      cursor:pointer;
-    }
-
-    .btn-primary{
-      background:var(--blue);
-      color:#fff;
-    }
-
-    .btn-primary:hover{
-      background:var(--blue-dark);
-    }
-
-    .btn-secondary{
-      background:#fff;
-      color:var(--text);
-      border-color:var(--line);
-    }
-
-    .menu-toggle{
-      display:none;
-      background:none;
-      border:none;
-      font-size:30px;
-      color:var(--blue);
-      padding:0;
-      line-height:1;
-    }
-
-    .hero-wrap{
-      padding:34px 0 28px;
-    }
-
-    .hero{
-      position:relative;
-      overflow:hidden;
-      border-radius:36px;
-      min-height:680px;
-      background:#0f1f3a;
-      box-shadow:var(--shadow);
-    }
-
-    .hero-image{
-      position:absolute;
-      inset:0;
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
-
-    .hero-overlay{
-      position:absolute;
-      inset:0;
-      background:
-        linear-gradient(90deg, rgba(9,20,42,.76) 0%, rgba(9,20,42,.56) 34%, rgba(9,20,42,.18) 62%, rgba(9,20,42,.10) 100%);
-    }
-
-    .hero-content{
-      position:relative;
-      z-index:2;
-      width:min(560px, 100%);
-      padding:92px 0 78px 56px;
-      color:#fff;
-    }
-
-    .hero-kicker{
-      display:none;
-    }
-
-    .hero-title{
-      margin:0 0 22px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:68px;
-      line-height:.98;
-      letter-spacing:-.03em;
-      font-weight:500;
-    }
-
-    .hero-subtitle{
-      margin:0 0 28px;
-      max-width:540px;
-      color:rgba(255,255,255,.92);
-      font-size:18px;
-      line-height:1.6;
-    }
-
-    .hero-actions{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:28px;
-    }
-
-    .hero-tags{
-      display:flex;
-      gap:18px;
-      flex-wrap:wrap;
-      color:rgba(255,255,255,.92);
-      font-size:14px;
-    }
-
-    .hero-tags span{
-      position:relative;
-    }
-
-    .hero-tags span:not(:last-child)::after{
-      content:"•";
-      position:absolute;
-      right:-12px;
-      top:0;
-      color:rgba(255,255,255,.55);
-    }
-
-    .section{
-      padding:22px 0 70px;
-    }
-
-    .section-title{
-      margin:0 0 30px;
-      text-align:center;
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight:500;
-      font-size:56px;
-      letter-spacing:-.03em;
-      color:var(--text);
-    }
-
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:22px;
-    }
-
-    .card{
-      background:var(--surface);
-      border:1px solid var(--line);
-      border-radius:24px;
-      overflow:hidden;
-      box-shadow:0 4px 18px rgba(16,24,40,.04);
-    }
-
-    .card-image{
-      aspect-ratio:16/10;
-      width:100%;
-      object-fit:cover;
-      background:#e8edf4;
-    }
-
-    .card-body{
-      padding:18px 18px 20px;
-    }
-
-    .card-title{
-      margin:0 0 8px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:24px;
-      line-height:1.08;
-      font-weight:500;
-      color:var(--text);
-    }
-
-    .card-text{
-      margin:0;
-      color:#4f5e73;
-      font-size:16px;
-      line-height:1.55;
-    }
-
-    @media (max-width: 1180px){
-      .nav{gap:22px}
-      .numbers{font-size:14px}
-      .hero-title{font-size:58px}
-      .section-title{font-size:48px}
-    }
-
-    @media (max-width: 980px){
-      .container{width:min(var(--container), calc(100% - 28px))}
-      .header-inner{
-        grid-template-columns:auto auto;
-        justify-content:space-between;
-        min-height:88px;
-      }
-      .nav,
-      .numbers,
-      .header-right .btn{
-        display:none;
-      }
-      .menu-toggle{
-        display:block;
-      }
-      .hero-wrap{
-        padding:22px 0 22px;
-      }
-      .hero{
-        min-height:auto;
-        border-radius:28px;
-      }
-      .hero-content{
-        width:100%;
-        padding:56px 34px 34px;
-      }
-      .hero-title{
-        font-size:44px;
-        line-height:1.02;
-      }
-      .hero-subtitle{
-        font-size:16px;
-        line-height:1.55;
-      }
-      .hero-actions{
-        flex-direction:column;
-        align-items:stretch;
-      }
-      .hero-actions .btn{
-        width:100%;
-        min-height:58px;
-        border-radius:18px;
-        font-size:16px;
-      }
-      .hero-tags{
-        justify-content:flex-start;
-        gap:16px;
-        font-size:13px;
-      }
-      .cards{
-        grid-template-columns:1fr;
-      }
-      .section{
-        padding-top:14px;
-      }
-      .section-title{
-        text-align:left;
-        font-size:32px;
-        line-height:1.05;
-        margin-bottom:22px;
-      }
-    }
-
-    @media (max-width: 560px){
-      .brand img{height:44px}
-      .hero-content{padding:44px 34px 26px}
-      .hero-title{font-size:34px}
-      .hero-subtitle{font-size:15px}
-      .card-title{font-size:20px}
-      .card-text{font-size:15px}
-    }
-  </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ROK | Premium Residential Construction</title>
+  <meta name="description" content="Premium residential construction across the South East." />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/">
-        <img src="/assets/images/general/logo.png" alt="ROK">
+      <a href="index.html" class="brand" aria-label="ROK home">
+        <img src="assets/images/logo-transparent.png" alt="ROK">
       </a>
 
       <nav class="nav">
-        <a href="/services.html">Services</a>
-        <a href="/projects.html">Projects</a>
-        <a href="/areas.html">Areas We Cover</a>
-        <a href="/about.html">About</a>
-        <a href="/contact.html">Contact</a>
+        <a href="index.html" class="current">Home</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="areas.html">Areas We Cover</a>
+        <a href="contact.html">Contact</a>
       </nav>
 
-      <div class="header-right">
-        <div class="numbers">
-          <a href="tel:01323409640">01323 409640</a>
-          <span class="divider">|</span>
-          <a href="tel:07383402127">07383 402127</a>
-        </div>
-        <a class="btn btn-primary" href="/contact.html">Request a Consultation</a>
-        <button class="menu-toggle" aria-label="Menu">☰</button>
+      <div class="header-actions">
+        <a href="tel:01323409640" class="phone-link">01323 409640</a>
+        <a href="contact.html" class="btn btn-primary">Request Consultation</a>
+        <button class="menu-toggle" type="button" aria-label="Open menu">Menu</button>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="hero-wrap">
+    <section class="hero">
       <div class="container">
-        <div class="hero">
-          <img id="hero-image" class="hero-image" src="/assets/images/general/hero_house_clean.png" alt="ROK residential construction">
-          <div class="hero-overlay"></div>
+        <div class="hero-shell">
+          <div class="hero-grid">
+            <div class="hero-copy">
+              <span class="eyebrow">Premium Residential Construction</span>
+              <h1>Building excellence across the South East.</h1>
+              <p>
+                ROK delivers bespoke new builds, high-spec extensions and carefully
+                executed renovations with clear project management from first visit
+                to final handover.
+              </p>
 
-          <div class="hero-content">
-            <div id="hero-kicker" class="hero-kicker"></div>
+              <div class="hero-actions">
+                <a href="contact.html" class="btn btn-gold">Request a Consultation</a>
+                <a href="projects.html" class="btn btn-secondary">View Recent Projects</a>
+              </div>
 
-            <h1 id="hero-title" class="hero-title">
-              Building with Precision. Designed for Longevity.
-            </h1>
-
-            <p id="hero-subtitle" class="hero-subtitle">
-              New builds, extensions and renovations across the South East — managed end-to-end.
-            </p>
-
-            <div class="hero-actions">
-              <a id="btn-primary" class="btn btn-primary" href="/contact.html">Request a Consultation</a>
-              <a id="btn-secondary" class="btn btn-secondary" href="/projects.html">View Projects</a>
+              <div class="hero-meta">
+                <span class="meta-pill">Fully insured</span>
+                <span class="meta-pill">Project managed</span>
+                <span class="meta-pill">High-spec finishes</span>
+              </div>
             </div>
 
-            <div class="hero-tags">
-              <span>New builds</span>
-              <span>Extensions</span>
-              <span>Renovations</span>
-              <span>Groundworks</span>
+            <div class="hero-panel-wrap">
+              <aside class="hero-panel">
+                <h2>Built around quality, detail and trust.</h2>
+                <p>
+                  From structural works and groundwork to interior finishing, every
+                  stage is coordinated with care to create homes that feel considered
+                  and complete.
+                </p>
+
+                <div class="metric-grid">
+                  <div class="metric">
+                    <strong>20+</strong>
+                    <span>Years combined trade experience</span>
+                  </div>
+                  <div class="metric">
+                    <strong>SE</strong>
+                    <span>Coverage across Surrey, Kent, Sussex & London</span>
+                  </div>
+                  <div class="metric">
+                    <strong>A-Z</strong>
+                    <span>End-to-end delivery & trusted specialists</span>
+                  </div>
+                </div>
+              </aside>
             </div>
           </div>
+        </div>
+
+        <div class="stats-bar">
+          <article class="stat-card">
+            <strong>Bespoke</strong>
+            <span>Tailored new build and refurbishment projects shaped around each client brief.</span>
+          </article>
+          <article class="stat-card">
+            <strong>Managed</strong>
+            <span>Clear communication, sequencing and site oversight throughout the build.</span>
+          </article>
+          <article class="stat-card">
+            <strong>Refined</strong>
+            <span>Premium materials, clean finishes and careful attention to the final detail.</span>
+          </article>
+          <article class="stat-card">
+            <strong>Reliable</strong>
+            <span>A local contractor focused on workmanship, accountability and consistency.</span>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2 class="section-title">Craftsmanship Backed by Experience</h2>
+        <div class="section-header">
+          <div>
+            <h2>Our core services</h2>
+            <p>
+              A high-end residential construction offering designed for clients who
+              want a reliable team and a polished result.
+            </p>
+          </div>
+          <a href="services.html" class="btn btn-secondary">Explore Services</a>
+        </div>
 
-        <div class="cards" id="services-grid">
-          <article class="card">
-            <img class="card-image" src="/assets/images/projects/project-1.jpg" alt="New builds">
-            <div class="card-body">
-              <h3 class="card-title">New Builds</h3>
-              <p class="card-text">High-quality new homes built with precision and care.</p>
+        <div class="grid-3">
+          <article class="service-card">
+            <div class="service-index">01</div>
+            <h3>New builds</h3>
+            <p>
+              Bespoke family homes delivered from enabling works and structure through
+              to interior completion and external detailing.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-index">02</div>
+            <h3>Extensions</h3>
+            <p>
+              Kitchen extensions, side returns and larger reconfigurations that
+              improve flow, light and long-term value.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-index">03</div>
+            <h3>Renovations</h3>
+            <p>
+              Full refurbishments and structural upgrades that transform existing homes
+              into calm, functional spaces.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2>Selected work</h2>
+            <p>
+              A curated selection of residential work spanning new builds, extensions
+              and refined renovation projects across the South East.
+            </p>
+          </div>
+          <a href="projects.html" class="btn btn-secondary">See All Projects</a>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured">
+            <div class="content">
+              <div class="project-meta">
+                <span class="meta-pill">Guildford</span>
+                <span class="meta-pill">Rear extension</span>
+              </div>
+              <h3>
+                Contemporary family extension with open-plan kitchen, rooflights and
+                landscaped terrace.
+              </h3>
+              <p>
+                Designed to add light, connection to the garden and a stronger
+                everyday layout while maintaining a clean, architectural finish
+                throughout.
+              </p>
             </div>
           </article>
 
-          <article class="card">
-            <img class="card-image" src="/assets/images/projects/project-2.jpg" alt="Extensions">
-            <div class="card-body">
-              <h3 class="card-title">Extensions</h3>
-              <p class="card-text">Expand your home with seamless modern extensions.</p>
-            </div>
-          </article>
+          <div class="stack">
+            <article class="project-card standard">
+              <div class="project-photo one"></div>
+              <div class="project-body">
+                <div>
+                  <div class="project-meta">
+                    <span class="tag">Kent</span>
+                    <span class="tag">New build</span>
+                  </div>
+                  <h3>Luxury new build residence</h3>
+                  <p>
+                    A complete ground-up build with a calm modern palette, generous
+                    glazing and refined external works.
+                  </p>
+                </div>
+                <span class="mini-copy">
+                  Full project management • Structural works • Finishing package
+                </span>
+              </div>
+            </article>
 
-          <article class="card">
-            <img class="card-image" src="/assets/images/projects/project-3.jpg" alt="Renovations">
-            <div class="card-body">
-              <h3 class="card-title">Renovations</h3>
-              <p class="card-text">Transform your property with full renovation services.</p>
-            </div>
-          </article>
+            <article class="project-card standard">
+              <div class="project-photo two"></div>
+              <div class="project-body">
+                <div>
+                  <div class="project-meta">
+                    <span class="tag">Sussex</span>
+                    <span class="tag">Renovation</span>
+                  </div>
+                  <h3>Whole-home refurbishment</h3>
+                  <p>
+                    Reconfigured living spaces, upgraded services and a carefully
+                    detailed finish across the entire property.
+                  </p>
+                </div>
+                <span class="mini-copy">
+                  Refurbishment • Joinery details • Premium finish
+                </span>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container two-col">
+        <article class="coverage-panel">
+          <h3>Why clients choose ROK</h3>
+          <p>
+            We combine skilled site delivery with a reliable, straightforward
+            approach that keeps projects moving and standards high.
+          </p>
+          <div class="coverage-tags">
+            <span class="tag">End-to-end project management</span>
+            <span class="tag">Clear communication</span>
+            <span class="tag">High-spec finishes</span>
+            <span class="tag">Trusted local contractor</span>
+            <span class="tag">Clean, organised sites</span>
+          </div>
+        </article>
+
+        <article class="testimonial">
+          <div class="quote">
+            “Professional, organised and meticulous from start to finish. The result
+            feels every bit as premium as we hoped.”
+          </div>
+          <p>
+            A client-first approach, careful sequencing and strong workmanship shape
+            the experience from first meeting to final handover.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container cta-band">
+        <h2>Ready to discuss your project?</h2>
+        <p>
+          Speak with ROK about a new build, extension or renovation across the South
+          East. We’ll arrange an initial conversation and advise on the best next step.
+        </p>
+        <div class="cta-actions">
+          <a href="contact.html" class="btn btn-gold">Request a Consultation</a>
+          <a href="tel:01323409640" class="btn btn-secondary">Call 01323 409640</a>
         </div>
       </div>
     </section>
   </main>
 
-  <script>
-    fetch('/content/homepage.json')
-      .then(function(res){ return res.json(); })
-      .then(function(data){
-        if(data.hero_title){
-          document.getElementById('hero-title').textContent = data.hero_title;
-        }
-        if(data.hero_subtitle){
-          document.getElementById('hero-subtitle').textContent = data.hero_subtitle;
-        }
-        if(data.button_primary){
-          document.getElementById('btn-primary').textContent = data.button_primary;
-        }
-        if(data.button_secondary){
-          document.getElementById('btn-secondary').textContent = data.button_secondary;
-        }
-        if(data.hero_image){
-          document.getElementById('hero-image').src = data.hero_image;
-        }
+  <footer class="footer">
+    <div class="container footer-shell">
+      <div>
+        <a href="index.html" class="brand" style="margin-bottom:14px">
+          <img src="assets/images/logo-transparent.png" alt="ROK">
+        </a>
+        <p>
+          Premium residential construction across the South East — from bespoke new
+          builds to refined extensions and full-home renovations.
+        </p>
+      </div>
 
-        if(Array.isArray(data.services) && data.services.length){
-          var grid = document.getElementById('services-grid');
-          grid.innerHTML = '';
+      <div>
+        <h5>Pages</h5>
+        <p><a href="services.html">Services</a></p>
+        <p><a href="projects.html">Projects</a></p>
+        <p><a href="areas.html">Areas We Cover</a></p>
+        <p><a href="contact.html">Contact</a></p>
+      </div>
 
-          data.services.slice(0,3).forEach(function(service){
-            var card = document.createElement('article');
-            card.className = 'card';
+      <div>
+        <h5>Contact</h5>
+        <p>Office: 01323 409640</p>
+        <p>Mobile: 07708 788901</p>
+        <p>Mobile: 07383 402127</p>
+        <p>info@therokgroup.co.uk</p>
+      </div>
+    </div>
+  </footer>
 
-            var img = document.createElement('img');
-            img.className = 'card-image';
-            img.src = service.image || '/assets/images/projects/project-1.jpg';
-            img.alt = service.title || '';
+  <div class="mobile-cta">
+    <a class="call" href="tel:01323409640">Call Now</a>
+    <a class="enquire" href="contact.html">Enquire</a>
+  </div>
 
-            var body = document.createElement('div');
-            body.className = 'card-body';
-
-            var title = document.createElement('h3');
-            title.className = 'card-title';
-            title.textContent = service.title || '';
-
-            var text = document.createElement('p');
-            text.className = 'card-text';
-            text.textContent = service.description || '';
-
-            body.appendChild(title);
-            body.appendChild(text);
-            card.appendChild(img);
-            card.appendChild(body);
-            grid.appendChild(card);
-          });
-        }
-      })
-      .catch(function(err){
-        console.log('Homepage content load error:', err);
-      });
-  </script>
+  <script src="assets/js/script.js"></script>
 </body>
 </html>

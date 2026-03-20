@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<defs>
+  <linearGradient id="sky" x1="0" x2="1"><stop stop-color="#dfe6ef"/><stop offset="1" stop-color="#f6f8fb"/></linearGradient>
+  <linearGradient id="glass" x1="0" x2="1"><stop stop-color="#5e7394"/><stop offset="1" stop-color="#c6cfdd"/></linearGradient>
+  <linearGradient id="ground" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#b9c4d4"/><stop offset="1" stop-color="#95a4bb"/></linearGradient>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<rect y="760" width="1600" height="240" fill="url(#ground)"/>
+<rect x="120" y="450" width="1120" height="240" rx="8" fill="#c6b79d"/>
+<rect x="260" y="360" width="720" height="260" rx="8" fill="#bda98a"/>
+<polygon points="220,430 520,220 840,430" fill="#233a67"/>
+<rect x="980" y="370" width="380" height="230" rx="8" fill="#b29d7f"/>
+<polygon points="950,430 1180,290 1410,430" fill="#233a67"/>
+<rect x="690" y="460" width="250" height="190" fill="url(#glass)" stroke="#233a67" stroke-width="18"/>
+<rect x="720" y="495" width="90" height="120" fill="#dde5ef" opacity=".85"/>
+<rect x="825" y="495" width="90" height="120" fill="#dde5ef" opacity=".85"/>
+<rect x="120" y="650" width="1240" height="18" fill="#233a67"/>
+<rect x="1210" y="450" width="80" height="150" fill="#d6c8b0" opacity=".65"/>
+</svg>

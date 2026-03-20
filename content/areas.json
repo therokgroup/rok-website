@@ -1,22 +1,22 @@
 {
   "title": "Areas We Cover",
-  "intro": "Premium residential construction projects across the South East.",
+  "intro": "Residential construction projects across the South East, delivered with a premium focus and end-to-end oversight.",
   "items": [
     {
-      "name": "Sussex",
-      "text": "Extensions, renovations and new-build projects across East and West Sussex."
+      "name": "Kent",
+      "text": "Stylish residential work across Kent with a focus on extensions, renovations and premium new-build delivery."
     },
     {
       "name": "Surrey",
-      "text": "Residential construction work focused on quality-led private clients."
+      "text": "Contemporary family homes, rear extensions and renovation projects with cleaner planning and stronger finishes."
     },
     {
-      "name": "Kent",
-      "text": "High-specification renovation and extension projects."
+      "name": "Sussex",
+      "text": "Measured project delivery for clients looking for a more controlled build experience from start to completion."
     },
     {
-      "name": "Essex",
-      "text": "Selected projects delivered with the same premium process and finish standards."
+      "name": "Greater London",
+      "text": "Selective residential projects where design, coordination and quality of finish are central to the brief."
     }
   ]
 }

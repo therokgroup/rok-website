@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 700 450" role="img" aria-label="Project 3">
+    <defs>
+      <linearGradient id="bg" x1="0" x2="1">
+        <stop offset="0%" stop-color="#EFF3F8"/>
+        <stop offset="100%" stop-color="#D5DDE8"/>
+      </linearGradient>
+      <linearGradient id="sky" x1="0" x2="1">
+        <stop offset="0%" stop-color="#EFF3F8"/>
+        <stop offset="100%" stop-color="#CCD6E4"/>
+      </linearGradient>
+    </defs>
+    <rect width="700" height="450" fill="url(#bg)"/>
+    <rect y="0" width="700" height="290" fill="url(#sky)"/>
+    <circle cx="585" cy="95" r="58" fill="#FFFFFF" opacity=".32"/>
+    <circle cx="105" cy="340" r="88" fill="#FFFFFF" opacity=".22"/>
+    
+        <rect x="100" y="240" width="500" height="150" rx="4" fill="#D4DEE9"/>
+        <rect x="115" y="150" width="150" height="170" fill="#B6C3D5"/>
+        <polygon points="105,175 190,105 275,175" fill="#153B6D"/>
+        <rect x="275" y="190" width="140" height="130" fill="#C9D3E1"/>
+        <rect x="420" y="130" width="160" height="190" fill="#BBC8DA"/>
+        <polygon points="405,150 500,85 595,150" fill="#244B7D"/>
+        <rect x="305" y="225" width="220" height="95" fill="#7083A0"/>
+        <rect x="330" y="240" width="80" height="65" fill="#E6EDF6"/>
+        <rect x="420" y="240" width="80" height="65" fill="#E6EDF6"/>
+        <rect x="115" y="320" width="470" height="12" fill="#153B6D"/>
+        
+  </svg>

@@ -1,1 +1,655 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>ROK</title><link rel="stylesheet" href="/assets/styles.css"></head><body data-page="home"><script src="/assets/js/main.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROK</title>
+  <style>
+    :root{
+      --bg:#f3f4f7;
+      --white:#ffffff;
+      --navy:#183765;
+      --navy-2:#22477f;
+      --text:#10233f;
+      --muted:#66758c;
+      --line:#d9e0ea;
+      --radius:28px;
+      --shadow:0 10px 28px rgba(16,35,63,.08);
+      --container:1360px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family: Inter, Arial, Helvetica, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    button{font:inherit}
+
+    .container{
+      width:min(var(--container), calc(100% - 56px));
+      margin:0 auto;
+    }
+
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter: blur(12px);
+      border-bottom:1px solid rgba(16,35,63,.06);
+    }
+
+    .header-inner{
+      min-height:88px;
+      display:grid;
+      grid-template-columns:auto 1fr auto;
+      align-items:center;
+      gap:24px;
+    }
+
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .logo{
+      height:38px;
+      width:auto;
+      object-fit:contain;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:34px;
+      align-items:center;
+    }
+
+    .nav a{
+      font-size:15px;
+      color:var(--text);
+      font-weight:500;
+      letter-spacing:.01em;
+    }
+
+    .header-right{
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+
+    .top-numbers{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:15px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+
+    .top-numbers .pipe{
+      color:#9aa8ba;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:50px;
+      padding:0 22px;
+      border-radius:14px;
+      border:1px solid transparent;
+      font-weight:700;
+      font-size:15px;
+      transition:.2s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+
+    .btn-primary{
+      background:var(--navy);
+      color:#fff;
+      box-shadow:0 8px 20px rgba(24,55,101,.18);
+    }
+
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      border-color:var(--line);
+    }
+
+    .mobile-menu-btn{
+      display:none;
+      width:54px;
+      height:54px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:var(--navy);
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      line-height:1;
+      box-shadow:var(--shadow);
+    }
+
+    .mobile-drawer{
+      display:none;
+    }
+
+    .hero-wrap{
+      padding:34px 0 18px;
+    }
+
+    .hero-card{
+      position:relative;
+      min-height:690px;
+      border-radius:36px;
+      overflow:hidden;
+      background:#dde5ee;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-media{
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center center;
+      background-repeat:no-repeat;
+      transform:scale(1.01);
+    }
+
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(12,24,46,.76) 0%, rgba(12,24,46,.58) 26%, rgba(12,24,46,.14) 55%, rgba(12,24,46,.06) 100%);
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:2;
+      width:min(650px, calc(100% - 64px));
+      padding:86px 0 62px 64px;
+      color:#fff;
+    }
+
+    .eyebrow{
+      margin:0 0 26px;
+      font-size:18px;
+      line-height:1.35;
+      letter-spacing:.22em;
+      font-weight:800;
+      text-transform:uppercase;
+      color:#fff;
+    }
+
+    .hero-title{
+      margin:0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:74px;
+      line-height:.96;
+      font-weight:500;
+      letter-spacing:-.03em;
+      max-width:620px;
+    }
+
+    .hero-subtitle{
+      max-width:580px;
+      margin:0 0 34px;
+      font-size:18px;
+      line-height:1.55;
+      color:rgba(255,255,255,.94);
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:28px;
+    }
+
+    .hero-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      color:rgba(255,255,255,.9);
+      font-size:16px;
+      line-height:1.4;
+    }
+
+    .hero-tags span{
+      display:inline-flex;
+      align-items:center;
+      gap:14px;
+    }
+
+    .hero-tags span:not(:last-child)::after{
+      content:"•";
+      opacity:.55;
+    }
+
+    .section{
+      padding:24px 0 72px;
+    }
+
+    .section-title{
+      margin:0 0 30px;
+      text-align:center;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:40px;
+      font-weight:500;
+      line-height:1.06;
+      letter-spacing:-.02em;
+      color:var(--text);
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:24px;
+    }
+
+    .service-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+
+    .service-image{
+      aspect-ratio: 1.55 / 1;
+      background:#dfe5ee;
+      overflow:hidden;
+    }
+
+    .service-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .service-body{
+      padding:18px 18px 20px;
+    }
+
+    .service-title{
+      margin:0 0 8px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:24px;
+      line-height:1.1;
+      font-weight:500;
+      color:var(--text);
+    }
+
+    .service-text{
+      margin:0;
+      font-size:16px;
+      line-height:1.5;
+      color:var(--muted);
+    }
+
+    .footer{
+      padding:24px 0 44px;
+    }
+
+    .footer-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:20px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .footer-right{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    @media (max-width: 1180px){
+      .header-inner{
+        grid-template-columns:auto 1fr auto;
+      }
+      .nav{
+        gap:24px;
+      }
+      .top-numbers{
+        font-size:14px;
+      }
+      .hero-title{
+        font-size:64px;
+      }
+    }
+
+    @media (max-width: 980px){
+      .container{
+        width:min(var(--container), calc(100% - 32px));
+      }
+
+      .header-inner{
+        min-height:108px;
+        grid-template-columns:auto auto;
+        justify-content:space-between;
+      }
+
+      .nav,
+      .header-right .top-numbers,
+      .header-right .btn-primary{
+        display:none;
+      }
+
+      .mobile-menu-btn{
+        display:flex;
+      }
+
+      .mobile-drawer{
+        display:none;
+        background:#fff;
+        border-top:1px solid var(--line);
+      }
+
+      .mobile-drawer.open{
+        display:block;
+      }
+
+      .mobile-drawer .drawer-inner{
+        width:min(var(--container), calc(100% - 32px));
+        margin:0 auto;
+        padding:18px 0 24px;
+        display:grid;
+        gap:14px;
+      }
+
+      .mobile-drawer a{
+        font-size:18px;
+        color:var(--text);
+        padding:8px 0;
+      }
+
+      .mobile-drawer .mobile-nums{
+        padding-top:8px;
+        border-top:1px solid var(--line);
+        display:grid;
+        gap:8px;
+        color:var(--text);
+        font-weight:600;
+      }
+
+      .hero-wrap{
+        padding:26px 0 18px;
+      }
+
+      .hero-card{
+        min-height:auto;
+        border-radius:30px;
+      }
+
+      .hero-media{
+        background-position:center center;
+      }
+
+      .hero-overlay{
+        background:linear-gradient(180deg, rgba(12,24,46,.58) 0%, rgba(12,24,46,.36) 100%);
+      }
+
+      .hero-content{
+        width:100%;
+        padding:40px 34px 32px;
+      }
+
+      .eyebrow{
+        font-size:17px;
+        margin-bottom:22px;
+      }
+
+      .hero-title{
+        font-size:66px;
+        max-width:100%;
+      }
+
+      .hero-subtitle{
+        font-size:17px;
+        margin-bottom:28px;
+        max-width:100%;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+        gap:16px;
+        margin-bottom:26px;
+      }
+
+      .hero-actions .btn{
+        width:100%;
+        min-height:58px;
+        font-size:18px;
+        border-radius:18px;
+      }
+
+      .hero-tags{
+        font-size:15px;
+        gap:8px 16px;
+      }
+
+      .cards{
+        grid-template-columns:1fr;
+      }
+
+      .section-title{
+        text-align:left;
+        font-size:34px;
+        padding:0 4px;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
+      .footer-right{
+        justify-content:flex-start;
+      }
+    }
+
+    @media (max-width: 640px){
+      .header-inner{
+        min-height:96px;
+      }
+
+      .logo{
+        height:32px;
+      }
+
+      .mobile-menu-btn{
+        width:50px;
+        height:50px;
+        font-size:28px;
+        border-radius:15px;
+      }
+
+      .hero-content{
+        padding:36px 34px 26px;
+      }
+
+      .eyebrow{
+        font-size:16px;
+        letter-spacing:.19em;
+      }
+
+      .hero-title{
+        font-size:44px;
+        line-height:.97;
+      }
+
+      .hero-subtitle{
+        font-size:17px;
+        line-height:1.55;
+      }
+
+      .hero-tags{
+        font-size:14px;
+      }
+
+      .section{
+        padding:22px 0 56px;
+      }
+
+      .section-title{
+        font-size:31px;
+        line-height:1.08;
+      }
+
+      .service-title{
+        font-size:22px;
+      }
+
+      .service-text{
+        font-size:15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-wrap" aria-label="ROK home">
+        <img class="logo" src="/assets/images/general/logo.png" alt="ROK logo">
+      </a>
+
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="/services.html">Services</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/areas.html">Areas We Cover</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+
+      <div class="header-right">
+        <div class="top-numbers">
+          <a href="tel:01323409640">01323 409640</a>
+          <span class="pipe">|</span>
+          <a href="tel:07383402127">07383 402127</a>
+        </div>
+        <a href="/contact.html" class="btn btn-primary">Request a Consultation</a>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+      <div class="drawer-inner">
+        <a href="/services.html">Services</a>
+        <a href="/projects.html">Projects</a>
+        <a href="/areas.html">Areas We Cover</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+        <div class="mobile-nums">
+          <a href="tel:01323409640">01323 409640</a>
+          <a href="tel:07383402127">07383 402127</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero-wrap">
+      <div class="container">
+        <div class="hero-card">
+          <div class="hero-media" id="heroMedia" style="background-image:url('/assets/images/general/home-hero.jpg');"></div>
+          <div class="hero-overlay"></div>
+
+          <div class="hero-content">
+            <h1 class="hero-title" id="heroTitle">Building with Precision. Designed for Longevity.</h1>
+            <p class="hero-subtitle" id="heroSubtitle">New builds, extensions and renovations across the South East — managed end-to-end.</p>
+
+            <div class="hero-actions">
+              <a href="/contact.html" class="btn btn-primary" id="primaryBtn">Request a Consultation</a>
+              <a href="/projects.html" class="btn btn-secondary" id="secondaryBtn">View Projects</a>
+            </div>
+
+            <div class="hero-tags" id="heroTags">
+              <span>New builds</span>
+              <span>Extensions</span>
+              <span>Renovations</span>
+              <span>Groundworks</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title" id="servicesHeading">Craftsmanship Backed by Experience</h2>
+
+        <div class="cards" id="servicesGrid">
+          <article class="service-card">
+            <div class="service-image">
+              <img src="/assets/images/projects/project-1.jpg" alt="New builds">
+            </div>
+            <div class="service-body">
+              <h3 class="service-title">New Builds</h3>
+              <p class="service-text">High-quality new homes built with precision and care.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <img src="/assets/images/projects/project-2.jpg" alt="Extensions">
+            </div>
+            <div class="service-body">
+              <h3 class="service-title">Extensions</h3>
+              <p class="service-text">Expand your home with seamless modern extensions.</p>
+            </div>
+          </article>
+
+          <article class="service-card">
+            <div class="service-image">
+              <img src="/assets/images/projects/project-3.jpg" alt="Renovations">
+            </div>
+            <div class="service-body">
+              <h3 class="service-title">Renovations</h3>
+              <p class="service-text">Transform your property with full renovation services.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>ROK</div>
+      <div class="footer-right">
+        <a href="tel:01323409640">01323 409640</a>
+        <a href="tel:07383402127">07383 402127</a>
+        <a href="mailto:info@therokgroup.co.uk">info@therokgroup.co.uk</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+
+    mobileMenuBtn?.addEventListener('click', () => {
+      mobileDrawer.classList.toggle('open');
+      mobileMenuBtn.textContent = mobileDrawer.classList.contains('open') ? '×' : '☰';
+    });
+
+    fetch('/content/homepage.json')
+      .then(res => res.json())

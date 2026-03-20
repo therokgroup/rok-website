@@ -1,43 +1,24 @@
 {
-  "eyebrow": "Premium Residential Construction",
-  "headline": "Building with Precision. Designed for Longevity.",
-  "subheadline": "New builds, extensions and renovations across the South East \u2014 managed end-to-end.",
-  "heroImage": "/assets/images/uploads/hero-home.jpg",
-  "primaryButtonText": "Request a Consultation",
-  "primaryButtonLink": "/contact.html",
-  "secondaryButtonText": "View Projects",
-  "secondaryButtonLink": "/projects.html",
-  "introHeading": "Craftsmanship Backed by Experience",
-  "introCards": [
+  "hero_title": "Building with Precision. Designed for Longevity.",
+  "hero_subtitle": "New builds, extensions and renovations across the South East — managed end-to-end.",
+  "button_primary": "Request a Consultation",
+  "button_secondary": "View Projects",
+  "hero_image": "/assets/images/hero.jpg",
+  "services": [
     {
       "title": "New Builds",
-      "text": "High-quality new homes built with precision and care.",
-      "image": "/assets/images/uploads/service-new-builds.jpg"
+      "description": "High-quality new homes built with precision and care.",
+      "image": "/assets/images/service1.jpg"
     },
     {
       "title": "Extensions",
-      "text": "Expand your home with seamless, modern extensions.",
-      "image": "/assets/images/uploads/service-extensions.jpg"
+      "description": "Expand your home with seamless modern extensions.",
+      "image": "/assets/images/service2.jpg"
     },
     {
       "title": "Renovations",
-      "text": "Transform your property with full renovation services.",
-      "image": "/assets/images/uploads/service-renovations.jpg"
-    }
-  ],
-  "featureHeading": "Clear process. Better control. Less noise for the client.",
-  "features": [
-    {
-      "title": "Pre-start planning",
-      "text": "Scope review, sequence planning and early decisions made before work begins."
-    },
-    {
-      "title": "Managed delivery",
-      "text": "Cleaner day-to-day control and steadier communication through the programme."
-    },
-    {
-      "title": "Detail-led finishes",
-      "text": "High finish standards carried through from shell to final handover."
+      "description": "Transform your property with full renovation services.",
+      "image": "/assets/images/service3.jpg"
     }
   ]
 }

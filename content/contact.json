@@ -1,7 +1,0 @@
-{
-  "metaTitle": "Contact",
-  "title": "Contact The Rok Group",
-  "intro": "Speak with us about your new build, extension or renovation project.",
-  "heroImage": "assets/images/hero-van.jpg",
-  "notice": "This is a static contact form preview. If you want live form submissions, connect Netlify Forms, Formspree or another backend after deployment."
-}
